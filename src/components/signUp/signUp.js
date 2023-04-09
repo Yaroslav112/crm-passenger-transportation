@@ -93,7 +93,7 @@ function SignUpComponent({signUpForm, handleSignUpForm, handleSignUp}) {
                 <Button primary onClick={handleSignUp} type="submit">Submit</Button>
             </Form>
             <p>or sign up with</p>
-            <div>
+            <div style={{marginLeft: "10px", display: "flex", width: "140px", justifyContent: "space-around"}}>
                 <Button onClick={handleSignInGoogle}>
                     <GoogleIcon />
                 </Button>
