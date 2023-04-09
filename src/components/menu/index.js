@@ -47,7 +47,7 @@ const HamburgerMenu = () => {
 
     return (
         <>
-            <Navbar className="navbar-light bg-secondary" expand="-xl">
+            <Navbar className="navbar-light" style={{backgroundColor: "#6fa1ff"}} expand="-xl">
                 <NavbarToggler onClick={toggleNavbar} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto " navbar>

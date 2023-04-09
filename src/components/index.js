@@ -54,7 +54,7 @@ const MainComponent = () => {
     return (
         <div>
             <Router>
-                <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
+                <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: "#6fa1ff"}}>
                     <div w="25"  id="navbarNav">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
