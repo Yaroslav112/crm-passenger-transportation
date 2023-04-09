@@ -5,7 +5,7 @@ const AdminPage = () => {
     return (
         <div>
             <HamburgerMenu />
-            <h2>You are admin</h2>
+            <h2>You are Administrator</h2>
         </div>
     );
 };

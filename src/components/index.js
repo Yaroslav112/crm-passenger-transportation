@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {BrowserRouter as Router, Route, Routes, Link, useNavigate} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import HomePage from './homePage/HomePage';
 import SignIn from './signIn/signIn';
 import SignUp from './signUp/signUp';
@@ -28,13 +28,11 @@ const MainComponent = () => {
         event.preventDefault();
         signUp(signUpForm.email, signUpForm.password, signUpForm.name, signUpForm.surname).then((res) => {
             if (res.user && res.user.email) {
-                setIsRegistrationCompleted(true); // Встановлення флагу про завершення реєстрації
-                // navigate('/home-page');
+                setIsRegistrationCompleted(true);
             }
         });
     };
 
-    // console.log(signUpForm, 'firstName')
     useEffect(() => {
         if (isRegistrationCompleted) {
             async function fetchData() {
@@ -44,7 +42,6 @@ const MainComponent = () => {
                         last: signUpForm.surname,
                         // born: 1999
                     });
-                    console.log(docRef, 'docRef');
                     console.log('Document written with ID: ', docRef.id);
                 } catch (e) {
                     console.error('Error adding document: ', e);

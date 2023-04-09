@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'bootstrap-4-react';
-import { FacebookIcon, GoogleIcon, MailIcon, PhoneIcon } from "../../assets/icons";
+import { FacebookIcon, GoogleIcon, PhoneIcon } from "../../assets/icons";
 import { useNavigate } from 'react-router-dom';
 import { signInFacebook, signInGoogle } from '../../Auth/Auth';
 
@@ -28,10 +28,11 @@ function SignUpComponent({signUpForm, handleSignUpForm, handleSignUp}) {
     const handleSignInFacebook = (event) => {
         event.preventDefault();
         signInFacebook().then((res) => {
-            console.log(res.user, 'res')
-            console.log(res.user && res.user.email, 'res.user && res.user.email')
-            if (res.user && res.user.email) {
-                navigate('/');
+            console.log(res.user, 'res.user && res.user.email')
+            if (res.user && res.user.email === admin) {
+                navigate('/admin-page');
+            } else {
+                navigate('/admin-page');
             }
         });
     };
@@ -101,9 +102,6 @@ function SignUpComponent({signUpForm, handleSignUpForm, handleSignUp}) {
                 </Button>
                 <Button onClick={handlePhone}>
                     <PhoneIcon />
-                </Button>
-                <Button onClick={handleSignInGoogle}>
-                    <MailIcon />
                 </Button>
             </div>
         </div>
