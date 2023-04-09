@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import HomePage from './homePage/HomePage';
+import HomePage from './homePage/homePage';
 import SignIn from './signIn/signIn';
 import SignUp from './signUp/signUp';
 import { db } from "../firebase-config";
 import { collection, addDoc } from "firebase/firestore";
 import AdminPage from "./adminPage";
 import { signUp } from "../Auth/Auth";
-import SignUpPhone from "./phonePage/signUpPhone";
 
 const defaultFormValue = {
     name: '',
@@ -71,7 +70,7 @@ const MainComponent = () => {
                     </div>
                 </nav>
                 <Routes>
-                    <Route path="/phone-page" element={<SignUpPhone />}/>
+                    <Route path="/phone-page" element={<HomePage />}/>
                     <Route path="/home-page" element={<HomePage />}/>
                     <Route path="/admin-page" element={<AdminPage />}/>
                     <Route path="/sign-in" element={<SignIn />}/>

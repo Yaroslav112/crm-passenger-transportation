@@ -51,7 +51,7 @@ const HamburgerMenu = () => {
                 <NavbarToggler onClick={toggleNavbar} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto " navbar>
-                        <ul>
+                        <ul style={{marginLeft: "50px"}}>
                             {users.map((user) => (
                                 <li style={{ width: "25%", backgroundColor: "#8b9098", borderRadius: "20px", border: "2px solid white", padding: "10px", marginTop: "20px", listStyleType: "none", marginBottom: "10px"}} key={user.id}>
                                     <p style={{ color: 'white' }}>Ім'я: {user?.first}</p>
