@@ -47,27 +47,35 @@ const HamburgerMenu = () => {
 
     return (
         <>
+            <h2  style={{backgroundColor: "#6fa1ff", marginBottom: "0", paddingLeft: "20px"}}>You are Administrator</h2>
             <Navbar className="navbar-light" style={{backgroundColor: "#6fa1ff"}} expand="-xl">
                 <NavbarToggler onClick={toggleNavbar} />
                 <Collapse isOpen={isOpen} navbar>
-                    <Nav className="mr-auto " navbar>
+                    <Nav className="mr-auto" navbar>
                         <ul style={{marginLeft: "50px"}}>
                             {users.map((user) => (
-                                <li style={{ width: "25%", backgroundColor: "#8b9098", borderRadius: "20px", border: "2px solid white", padding: "10px", marginTop: "20px", listStyleType: "none", marginBottom: "10px"}} key={user.id}>
-                                    <p style={{ color: 'white' }}>Ім'я: {user?.first}</p>
-                                    <p style={{ color: 'white' }}>Прізвище: {user?.last}</p>
-                                    <div >
-                                        <p style={{ color: 'white' }}>Роль: {user?.role}</p>
-                                        <select
-                                            className="form-control text-white bg-dark"
-                                            value={user.role}
-                                            onChange={(e) => handleRoleChange(user.id, e.target.value)}
-                                            style={{width: "150px", height: "35px"}}
-                                        >
-                                            <option value="Driver">Driver</option>
-                                            <option value="Passenger">Passenger</option>
-                                            <option value="Dispatcher">Dispatcher</option>
-                                        </select>
+                                <li style={{ width: "20%", borderRadius: "20px", padding: "10px", marginTop: "20px", listStyleType: "none", marginBottom: "10px"}} key={user.id}>
+                                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+                                         height="250px"
+                                         className="card-img-top" alt="user-photo"
+                                    />
+                                    <div className="card text-white bg-secondary mb-3" style={{maxWidth: "18rem;"}}>
+                                        <div className="card-body">
+                                            <p style={{ color: 'white' }}>Role: {user?.role}</p>
+                                            <p style={{ color: 'white', marginBottom: "0" }}>Name: {user?.first} {user?.last}</p>
+                                        </div>
+                                        <div style={{marginLeft: "20px", marginBottom: "10px"}}>
+                                            <select
+                                                className="form-control text-white bg-dark"
+                                                value={user.role}
+                                                onChange={(e) => handleRoleChange(user.id, e.target.value)}
+                                                style={{width: "150px", height: "35px"}}
+                                            >
+                                                <option value="Driver">Driver</option>
+                                                <option value="Passenger">Passenger</option>
+                                                <option value="Dispatcher">Dispatcher</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </li>
                             ))}

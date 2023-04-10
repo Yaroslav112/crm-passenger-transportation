@@ -10,7 +10,7 @@ const LogOutButton = () => {
     };
 
     return (
-        <div>
+        <div style={{marginTop: "20px", marginRight: "20px"}}>
             <Button className="float-right" onClick={logOut}>Sign out</Button>
         </div>
     )

@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Button, Form } from "bootstrap-4-react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "../../firebase-config";
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 
 function SignUpPhone() {
     const [phoneNumber, setPhoneNumber] = useState("+380")
     const [expandForm, setExpandForm] = useState(false)
     const [OTP, setOTP] = useState('')
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const generateRecaptcha = () => {
         window.recaptchaVerifier = new RecaptchaVerifier("recaptcha-container", {
@@ -30,7 +30,7 @@ function SignUpPhone() {
             .then(confirmationResult => {
                 window.confirmationResult = confirmationResult;
             }).catch((e) => {
-                console.log(e, 'eeeeeeeeeeeeeeerorrrrr')
+                console.log(e)
             })
         }
 
@@ -45,10 +45,10 @@ function SignUpPhone() {
 
             confirmationResult.confirm(otp)
                 .then((result) => {
-                    navigate('/home-page')
+                    // navigate('/home-page')
                 })
-                .catch((error) => {
-                    console.log(error, 'eeeeeeeeeenother');
+                .catch((e) => {
+                    console.log(e);
                 });
         }
     };

@@ -5,12 +5,14 @@ import { signIn } from '../../Auth/Auth';
 
 const admin = "yaroslav0934@gmail.com"
 
+const signInFormDefaultValue = {
+    email: '',
+    password: '',
+}
+
 function SignInComponent() {
     const navigate = useNavigate();
-    const [signInForm, setSignInForm] = useState({
-        email: '',
-        password: '',
-    });
+    const [signInForm, setSignInForm] = useState(signInFormDefaultValue);
 
     const handleSignInForm = (event) => {
         setSignInForm({ ...signInForm, [event.target.name]: event.target.value });
@@ -30,8 +32,8 @@ function SignInComponent() {
     return (
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginBottom: '5'}}>
             <h2>Sign in</h2>
-            <Form >
-                <Form.Group  >
+            <Form>
+                <Form.Group>
                     <label htmlFor="inputEmail">Email address</label>
                     <Form.Input
                         label={'Email'}

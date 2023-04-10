@@ -28,11 +28,10 @@ function SignUpComponent({signUpForm, handleSignUpForm, handleSignUp}) {
     const handleSignInFacebook = (event) => {
         event.preventDefault();
         signInFacebook().then((res) => {
-            console.log(res.user, 'res.user && res.user.email')
             if (res.user && res.user.email === admin) {
                 navigate('/admin-page');
             } else {
-                navigate('/admin-page');
+                navigate('/home-page');
             }
         });
     };
@@ -41,6 +40,30 @@ function SignUpComponent({signUpForm, handleSignUpForm, handleSignUp}) {
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginBottom: '5'}}>
             <h2>Sign up</h2>
             <Form>
+                <Form.Group>
+                    <label htmlFor="inputName">Name</label>
+                    <Form.Input
+                        label={'Name'}
+                        name='name'
+                        value={signUpForm.name}
+                        onChange={handleSignUpForm}
+                        type="text"
+                        id="inputName"
+                        placeholder="Enter name"
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <label htmlFor="inputSurname">Surname</label>
+                    <Form.Input
+                        label={'Surname'}
+                        name='surname'
+                        value={signUpForm.surname}
+                        onChange={handleSignUpForm}
+                        type="text"
+                        id="inputSurname"
+                        placeholder="Enter surname"
+                    />
+                </Form.Group>
                 <Form.Group>
                     <label htmlFor="inputEmail">Email address</label>
                     <Form.Input
@@ -64,30 +87,6 @@ function SignUpComponent({signUpForm, handleSignUpForm, handleSignUp}) {
                         placeholder='Password'
                         value={signUpForm.password}
                         onChange={handleSignUpForm}
-                    />
-                </Form.Group>
-                <Form.Group>
-                    <label htmlFor="inputName">Name</label>
-                    <Form.Input
-                        label={'Name'}
-                        name='name'
-                        value={signUpForm.name}
-                        onChange={handleSignUpForm}
-                        type="text"
-                        id="inputName"
-                        placeholder="Enter name"
-                    />
-                </Form.Group>
-                <Form.Group>
-                    <label htmlFor="inputSurname">Surname</label>
-                    <Form.Input
-                        label={'Surname'}
-                        name='surname'
-                        value={signUpForm.surname}
-                        onChange={handleSignUpForm}
-                        type="text"
-                        id="inputSurname"
-                        placeholder="Enter surname"
                     />
                 </Form.Group>
                 <Button primary onClick={handleSignUp} type="submit">Submit</Button>

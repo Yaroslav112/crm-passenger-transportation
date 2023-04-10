@@ -7,6 +7,7 @@ import { db } from "../firebase-config";
 import { collection, addDoc } from "firebase/firestore";
 import AdminPage from "./adminPage";
 import { signUp } from "../Auth/Auth";
+import SignUpPhone from "./phonePage/signUpPhone";
 
 const defaultFormValue = {
     name: '',
@@ -39,7 +40,6 @@ const MainComponent = () => {
                     const docRef = await addDoc(collection(db, 'users'), {
                         first: signUpForm.name,
                         last: signUpForm.surname,
-                        // born: 1999
                     });
                     console.log('Document written with ID: ', docRef.id);
                 } catch (e) {
@@ -70,7 +70,7 @@ const MainComponent = () => {
                     </div>
                 </nav>
                 <Routes>
-                    <Route path="/phone-page" element={<HomePage />}/>
+                    <Route path="/phone-page" element={<SignUpPhone />}/>
                     <Route path="/home-page" element={<HomePage />}/>
                     <Route path="/admin-page" element={<AdminPage />}/>
                     <Route path="/sign-in" element={<SignIn />}/>
